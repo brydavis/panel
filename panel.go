@@ -28,7 +28,7 @@ func New(data interface{}) Panel {
 	default:
 
 	}
-	return p
+	return p.Clean()
 
 }
 

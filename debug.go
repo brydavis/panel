@@ -5,12 +5,13 @@ import (
 	"reflect"
 )
 
-func (p Panel) PrintRowTypes() {
-	PrintRowTypes(p)
-
+func (p Panel) Dtypes(heads ...string) {
+	Dtypes(p, heads)
 }
 
-func PrintRowTypes(p Panel) {
+// TODO
+// limit print to head in heads
+func Dtypes(p Panel, heads ...string) {
 	for head, col := range p {
 		for row, val := range col {
 			switch t := val.(type) {
