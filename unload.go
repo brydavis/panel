@@ -12,6 +12,14 @@ import (
 	"github.com/tealeg/xlsx"
 )
 
+func (p Panel) Write(fname string) { // ADD ERROR
+	Unload(p, fname)
+}
+
+func (p Panel) Dump(fname string) { // ADD ERROR
+	Unload(p, fname)
+}
+
 func (p Panel) Unload(fname string) { // ADD ERROR
 	Unload(p, fname)
 }

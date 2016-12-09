@@ -2,6 +2,36 @@ package main
 
 type Panel map[string][]interface{}
 
+func New(data interface{}) Panel {
+	p := make(Panel)
+	switch t := data.(type) {
+	case map[string][]interface{}:
+		p = Panel(p)
+	case map[string][]string:
+		for head := range t {
+			p.Add(head, t[head])
+		}
+	case map[string][]bool:
+		for head := range t {
+			p.Add(head, t[head])
+		}
+
+	case map[string][]int:
+		for head := range t {
+			p.Add(head, t[head])
+		}
+
+	case map[string][]float64:
+		for head := range t {
+			p.Add(head, t[head])
+		}
+	default:
+
+	}
+	return p
+
+}
+
 func (p Panel) Add(header string, data interface{}) Panel {
 	switch t := data.(type) {
 	case []interface{}:
