@@ -1,4 +1,4 @@
-# Grid
+# Panel
 
 Data analysis framework for Go.
 
@@ -10,7 +10,7 @@ package main
 
 import (
 	"fmt"
-	. "github.com/brydavis/grid"
+	. "github.com/brydavis/panel"
 )
 
 func main() {
@@ -28,6 +28,20 @@ func main() {
 	fmt.Println(McNames.Select("FirstName", "LastName"))
 }
 ```
+Upload a CSV and map a function
+```go
+	{ // Read a CSV
+		df := Read("data/iris.csv", true)
+		df = df.Map("species", func(s string) string {
+			return fmt.Sprintf("__%s", s)
+		})
+
+		fmt.Println(df["species"])
+
+	}
+```
+
+
 
 #### Features
 1. Map
